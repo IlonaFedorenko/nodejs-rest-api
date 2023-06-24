@@ -1,4 +1,4 @@
-const Contact = require("../models");
+const { Contact } = require("../../models");
 
 const addContact = async (req, res, next) => {
   try {
@@ -6,7 +6,8 @@ const addContact = async (req, res, next) => {
       res.status(400).json({ message: "missing required name field" });
       return;
     }
-    const result = await Contact.create(req.body);
+    const { _id: owner } = req.user;
+    const result = await Contact.create({ ...req.body, owner });
     res.status(201).json(result);
   } catch (error) {
     next(error);
