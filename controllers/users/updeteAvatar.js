@@ -34,10 +34,11 @@ const updeteAvatar = async (req, res) => {
 // const updeteAvatar = async (req, res) => {
 //   const { _id } = req.user;
 //   const { path: tmpUpload, originalname } = req.file;
-//   const resultUpload = path.join(avatarsDir, originalname);
+//   сonst filename =`${_id}_${originalname}`;
+//   const resultUpload = path.join(avatarsDir, filename);
 //   try {
 //     await fs.rename(tmpUpload, resultUpload);
-//     const avatarURL = path.join("avatars", originalname);
+//     const avatarURL = path.join("avatars", filename);
 //     await User.findByIdAndUpdate(_id, { avatarURL });
 //     res.status(200).json({
 //       avatarURL,
