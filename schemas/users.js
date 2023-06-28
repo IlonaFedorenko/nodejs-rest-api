@@ -8,6 +8,10 @@ const registerSchema = Joi.object({
   email: Joi.string().pattern(emailRegex).required(),
 });
 
+const emailSchema = Joi.object({
+  email: Joi.string().pattern(emailRegex).required(),
+});
+
 const loginSchema = Joi.object({
   password: Joi.string().min(8).required(),
   email: Joi.string().pattern(emailRegex).required(),
@@ -16,4 +20,5 @@ const loginSchema = Joi.object({
 module.exports = {
   registerSchema,
   loginSchema,
+  emailSchema,
 };
