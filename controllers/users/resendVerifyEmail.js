@@ -9,6 +9,7 @@ const resendVerifyEmail = async (req, res, next) => {
       message: "Email mot found",
     });
   }
+
   if (user.verify) {
     res.status(400).json({
       message: "Verification has already been passed",
